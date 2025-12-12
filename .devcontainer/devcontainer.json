@@ -4,7 +4,9 @@
   },
   "privileged": true,
   "forwardPorts": [6080],
-  "runArgs": ["--cap-add=SYS_ADMIN"],
-  "postCreateCommand": "pipx install numpy && mkdir -p ~/.vnc && printf 'password\n' | vncpasswd -f > ~/.vnc/passwd && chmod 600 ~/.vnc/passwd && git clone https://github.com/novnc/noVNC.git",
-  "postStartCommand": "vncserver -xstartup \"cinnamon-session\" -rfbport 5900 && ./noVNC/utils/novnc_proxy --vnc 127.0.0.1:5900 --listen localhost:6080"
+  "runArgs": [
+    "--cap-add=SYS_ADMIN"
+  ],
+  "postCreateCommand": "git clone https://github.com/novnc/noVNC.git && git clone https://github.com/novnc/websockify /websockify",
+  "postStartCommand": "vncserver -geometry 1280x720 -depth 24 && /workspaces/${localWorkspaceFolderBasename}/noVNC/utils/novnc_proxy --vnc localhost:5901 --listen 0.0.0.0:6080"
 }
