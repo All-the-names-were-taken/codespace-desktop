@@ -24,4 +24,4 @@ x11vnc \
 sleep 2
 
 cd /opt/novnc
-./utils/novnc_proxy --vnc 0.0.0.0:5900 --listen 0.0.0.0:6080
+./utils/novnc_proxy --vnc 0.0.0.0:5900 --listen 0.0.0.0:6080 --web /opt/novnc
