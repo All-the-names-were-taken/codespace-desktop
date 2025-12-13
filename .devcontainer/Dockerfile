@@ -9,9 +9,8 @@ RUN apt-get update && apt-get upgrade -y && \
     dbus-x11 \
     tigervnc-standalone-server \
     novnc python3-websockify \
-    wget curl git \
-    htop \
-    papirus-icon-theme \
-    arc-theme \
-    plank \
+    git wget curl \
+    papirus-icon-theme arc-theme plank \
     && apt-get clean
+
+RUN git clone https://github.com/novnc/noVNC.git /opt/novnc
